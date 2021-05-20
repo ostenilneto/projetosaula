@@ -12,4 +12,20 @@ ____________________________________________________________
 
 Repositório
 
-git 
+Branch = projeto/ versão
+Commit = alterações
+
+Comandos:
+
+clear // limpar tela
+dir // listar documentos windows
+git init // iniciar diretorio git
+git status // status dos arquivos 
+git add -A // adicionar todas os arquivos da pasta
+git commit -m "Primeiro comentario" // Commit + comentario
+git commit -am "Primeiro comentario" // Add + Commit + comentario
+git log // log alterações(commit)
+git branch // saber qual o projeto está conectado
+git reset --soft // reverte todas as alterações antes do commit(volta no commit anterior, mas traz as modificações posteriores)
+git reset --mixed //reverte todas as alterações antes do add(volta no commit anterior, mas traz as modificações posteriores)
+git reset --hard // reverte todas as alterações por completo(volta no commit anterior, perde modificações)
