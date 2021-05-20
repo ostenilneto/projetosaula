@@ -36,5 +36,9 @@ git diff --name-only // mostra o nome nos arquivos antes do commit
 git diff style.css // mostra o que foi alterado somente no arquivo style.css antes do commit
 git checkout HEAD -- style.css // cancela as modificações no arquivo especifico - HEAD(somente no branch que está logado)
 
+//Após cadastrado no GITHUB
 
-
+git remote add origin https://github.com/ostenilneto/projetosaula.git // adicionar repositorio local no remoto
+git remote // mostra o repositorio remoto
+git remote -v // fetch - atualiza do remoto para local / push - atualiza do local para remoto
+git push -u origin main // sincronizar os arquivos
