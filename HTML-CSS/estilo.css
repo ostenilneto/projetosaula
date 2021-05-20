@@ -1,0 +1,150 @@
+* {
+	box-sizing: content-box;
+}
+
+.exemplo {
+	border:1px solid #00FF00;
+	padding: 10px;
+	margin: 10px;
+}
+
+fieldset {
+	background-color:#EEE;
+	margin-bottom:20px;
+	border: 2px solid #FF0000;
+}
+
+legend {
+	background-color:#FF0000;
+	color:#FFF;
+	padding:5px;
+}
+.balao {
+	background-color: #0000FF;
+	display:inline-block;
+	color:#FFF;
+	padding: 20px;
+	border-radius: 20px;
+	margin-bottom: 30px;
+}
+.balao::after {
+	content:'';
+	display:block;
+	position: absolute;
+	margin-top: 20px;
+	border:10px solid;
+	border-color: #0000FF transparent transparent transparent;
+}
+table {
+	margin-bottom: 20px;
+}
+table thead {
+	background-color: #CCC;
+}
+th, td, tr {
+	padding:8px;
+	border: 1px solid;
+}
+th {
+	text-align:center;
+}
+tbody tr:houver {
+	background-color: #EEE;
+}
+tbody td:houver {
+	border-bottom: 1px solid #CCC;
+}
+/* linhas pares (even) */
+tbody tr:nth-child(even) {
+	background-color: rgb(93, 240, 93);
+}
+/* linhas ímpares (odd) */
+.tabela tbody tr:nth-child(odd) {
+    background-color: #FFF;
+}
+.botao {
+	margin-top: 20px;
+	background-color: #448dd1;
+	display:inline-block;
+	color:#FFF;
+	padding: 20px;
+	border-radius: 20px;
+	margin-bottom: 30px;
+	width: 100px;
+	height: 20px;
+	text-align: center;
+	font-size: 20px;
+	box-shadow: 0px 1px 3px 0px #b8b8b8;
+	line-height: 17px;
+	
+}
+a {
+	text-decoration: none;
+	flex: 1;
+	color: #FFF;
+	border-top: 1px solid #FFF;
+	border-bottom: 1px solid #FFF;
+	font-size: 20px;
+}
+a:hover {
+	background-color: #5ca6eb;
+}
+.aviso {
+	position: fixed;
+	top: 50px;
+	left: 1050px;
+	display: flex;
+	width: 300px;
+	height: 50px;
+	background-color: #0082d8;
+	border-top: 2px solid #0082d8;
+	border-bottom: 2px solid #0082d8;
+	box-shadow: 0 1px 5px 2px #c4c4c4;
+	text-align: center;
+	transform: rotate(45deg);
+	line-height: 45px;
+}
+.container {
+	display: grid;
+	grid-gap: 10px;
+	background-color: #CCC;
+	grid-template-areas: 
+		"header header header header header"
+		"menu menu content content content"
+		"ad ad content content content"
+		"footer footer footer footer footer"
+	;
+}
+.item {
+	background-color: #00F;
+	border-radius: 10px;
+	padding: 20px;
+	color: #FFF;
+	font-size: 20px;
+}
+
+header {
+	grid-area: header;
+}
+nav {
+	grid-area: menu;
+}
+section {
+	grid-area: content;
+}
+footer {
+	grid-area: footer;
+}
+.ad {
+	grid-area: ad;
+}
+
+@media (max-width:750px) {
+	.container {
+		grid-template-areas: 
+			"header header header menu"
+			"content content content content"
+			"footer footer footer ad"
+		;
+	}
+}

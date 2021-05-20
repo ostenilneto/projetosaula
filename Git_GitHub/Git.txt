@@ -1,0 +1,14 @@
+Comandos GIT
+
+git --version //saber a versão do GIT
+git config --global user.name "Ostenil Neto" //Alterar nome
+git config --global user.email "ostenilneto@hotmail.com" //Alterar e-mail
+git config --global core.editor notepad++//Alterar o editor
+git config user.name //Retorna nome cadastrado
+git config user.email //Retorna email cadastrado
+git config --list //Retorna todas as informações cadastradas
+
+____________________________________________________________
+
+Repositório
+

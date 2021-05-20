@@ -1,0 +1,746 @@
+-	inline = dentro do comando html
+-	interno = todo o código em um local(head)
+-	externo = novo arquivo
+____________________________________________________________
+
+<hl style="color:red"></hl> cor 
+style="width:100px" tamanho imagem 
+style="font-size:30px" tamanho fonte
+____________________________________________________________
+
+<head> 
+<style> 
+hl { 
+	color: blue; 
+	font-size: 15px;
+}
+
+a {
+	color: green; 
+	font-size:30px;
+}
+
+img {
+	width:200px;
+}
+
+li {
+	font-weight: bold; 
+	color: blueviolet;
+}
+</style>
+</head>
+____________________________________________________________
+
+<head>
+<link rel="stylesheet" href="estilo.css" />
+</head>
+____________________________________________________________
+
+-- Usar o externo mas colocar id(somente 1 elemento) ou class(varios elementros) nos HTML
+
+Html
+
+<hl id="titulo"></hl>
+<p class="texto"></p>
+
+CSS
+
+#titulo {
+	color: green;
+}
+.texto {
+	color: red;
+}
+
+
+Unir
+
+#titulo, 
+.texto {
+	color: blue;
+	font-size:25px;
+}
+
+Quando tiver um item dentro de outro(ele vai verificar todos os elementros ol e vai trocar a cor dos li)
+
+ol li {
+	color: pink;
+}
+____________________________________________________________
+
+background-color faixa fundo
+
+RGB = RED GREEN BLUE (CALCULO EM BYTE DE 0 A 255)
+RGBA = RED GREEN BLUE TRANSPARENCIA(CALCULO EM BYTE DE 0 A 255)
+PRETO = R = 0% / G = 0% / B = 0%
+BRANCO = R = 100% / G = 100 % / B = 100 %
+
+background-color: rgb(0, 0, 0); Fundo PRETO
+
+currentColor = cor do elemento anterior
+____________________________________________________________
+
+RGBA = RED GREEN BLUE ALPHA(Transparencia)
+background-color: rgba (255, 0, 0, 0.5);
+
+____________________________________________________________
+
+hexadecimal 
+background-color: #FF0000 = vermelho
+
+0 a 9 de A a F 
+
+1 e 2 digitos = vermelho
+3 e 4 digitos = verde
+5 e 6 digitos = azul
+____________________________________________________________
+
+Bordas(tamanho - tipo de borda - cor)
+
+p {
+	border:5px solid #0000FF;
+}
+
+solid dotted dashed double groove ...
+
+border-bottom embaixo
+border-left esquerda
+border-right direita
+border-top acima
+
+border-color cor dentro
+border-radius arredondar as quinas
+____________________________________________________________
+
+Margins e Padding
+
+padding: 10px = espaçamento interno todos os lados dentro do div
+margins: 10px = espaçamento externo todos os lados dentro do div
+padding: 10px 20px 10px 20px(em cima, direita, em baixo, esquerda)
+padding: 10px 20px(pra cima e pra baixo, esquerda e direita)
+____________________________________________________________
+
+Width(largura) e Height(altura)
+
+widht: 100%; (100% da página)
+widht: auto; (tamanho real imagem)
+widht: 100px; (tamanho em pixel)
+widht: 100cm; (tamanho em centimetros)
+widht: inherit; (herança tamanho do item anterior)
+max-widht: 450px; (limite maximo do tamanho da imagem) (prioridade)
+min-widht: 500px; (limite minimo do tamanho da imagem) (prioridade)
+____________________________________________________________
+
+Para aplicar efeito em todos os elementos da tela
+
+* {
+	box-sizing: content-box;
+}
+
+box-sizing = tamanho dos box
+
+content-box = tamanho do elemento definido pelo elemento não inclui padding/border(tamanho total = soma widht e height + padding + height)
+
+border-box = tamanho do elemento definido pelo elemento inclui padding/border(tamanho total = difinido pelo widht e height)
+
+border-shadow = sombra do elemento(1º horizontal - 2º vertical - 3º esfumaçamento - 4º cor sombra)
+text-shadow = sombra do texto(1º horizontal - 2º vertical - 3º esfumaçamento - 4º cor sombra)
+
+____________________________________________________________
+
+Colocar margin no body pros elementos começarem com margem 0
+
+body {
+	margin:0px;
+}
+____________________________________________________________
+
+class "link"
+
+.link {
+	color: green;
+	font-size: 30px;
+}
+
+.link:hover {
+	color: red;	
+} (quando passar o mouse muda de cor)
+
+.link:visited {
+	color: pink;	
+} (após acessar o link muda de cor)
+____________________________________________________________
+
+tag p
+color = cor
+font-size = tamanho fonte
+font-weight = normal, bold 
+font-family = Arial, Verdana, Serif (pode colocar 2 ou mais opções para o caso de não haver a primeira)
+text-align = alinhamento(left(padrão), center, hight, justify)
+text-transform = transformar texto para caixa alta(uppercase), transformar texto para caixa baixa(lowercase)
+letter-spacing = espaçamento entre letras
+word-spacing = espaçamento entre palavras
+line-height = altura da linha
+text-shadow = sombra para texto = 0px(direita) 2px(abaixo) 3px(esfumaçamento) #FF0000(cor)
+
+tag a ou p
+text-decoration = anderline no texto(none(sem risco), overline(risco em cima da palavra), line-through(risco em cima da palavra)
+____________________________________________________________
+
+google fonts / Load Time: Fast
+
+HMTML
+Adiciona o link da fonte
+
+CSS
+font-family:'nom edafonteentreaspas' 
+____________________________________________________________
+
+table thead {
+	background-color: #CCC;
+}
+th, td {
+	padding:10px;
+	text-align:left;
+}
+tbody tr:houver {
+	background-color: #EEE;
+}
+tbody td:houver {
+	border-bottom: 1px solid #CCC;
+}
+tbody tr:nth-child(even) {
+	background-color: #EEE;
+}
+____________________________________________________________
+
+label {
+	display:inline;
+	margin-bottom:20px;
+}
+inline = padrão 
+block = bloco semelhante a div(1 embaixo do outro)
+
+input[type=text], textarea, select{
+	padding:10px;
+	width:500px;
+	font-size:15px;
+	border:1px solid #CCC;
+	outline:0;
+	margin-top: 5px;	
+}
+outline = seleção do campo
+
+textarea {
+	height:200px;
+	resize:none;
+}
+resize:none = retira o canto da caixa que permite o usuario aumentar ou diminuir a caixa de texto
+
+.termoslink {
+	color:#000;
+	text-decoration:none;
+}
+"Sumir" com o link do termo
+
+.termoslink:houver {
+	text-decoration: underline;
+}
+Mostra que é um link quando passar o mouse
+
+button {
+	padding:10px;
+	font-size:15px;
+	border: 1px solid #CCC;
+	background-color: #EEE;
+}
+
+button:houver {
+	background-color: #DDD;
+}
+____________________________________________________________
+
+Responsividade
+
+.teste {
+	width:600px;
+	height:300px;
+	background-color:red;
+}
+
+@media only screen and (min-width: 200px) and (max-width: 600px){
+	
+	.teste{
+		background-color: green;
+		width:200px;
+	}
+}
+
+Quando a largura da tela for entre 200 e 600px deverá mudar de cor;
+Quando a largura da tela for entre 200 e 600px deverá automaticamente diminuir para 200px;
+
+(orientation:landscape) quando o celular estiver deitado
+____________________________________________________________
+
+Unidades de Medidas - colocar o primeiro em px
+
+px - pixel
+cm - centimetros
+em - unidade de medida do item anterior(se o item anterior tiver 40px e vc colocou o item como 2em = 80px)
+rem - baseado no primeiro item(ajuda a ficar responsivo)
+ex - tamanho do x, cada x é a medida.
+ch - somente para fonte que possui o mesmo espassamento de letras
+vh ou vw - porcentagem do tamanho disponivel pela tela do usuario
+inherit - font-size: inherit (herdar a fonte do item anterior)
+____________________________________________________________
+
+Responsividade
+ 
+Mobile First - antigamente era primeiro pensando na versão mobile depois para desktop
+layout adaptativo + responsivo
+versões de tamanho 320, 760, 960, 1600
+
+img{ object-fit: contain} adapta proporcional a imagem sem distorcer, cover = adapta a imagem e corta sem distorcer
+none = corta imagem pra caber, sem adaptar a imagem, scale-down = similar a contain, mas diminui a qualidade para caber.
+
+@media (min-width: 1000px){
+	body{
+		background-color: #0000FF;
+	}
+}
+@media (min-width: 700px and 1000px){
+	body{
+		background-color: purple;
+	}
+}
+@media (min-width: 300px and 700px){
+	body{
+		background-color: royalblue;
+	}
+	h1{
+		font-size: 15px;
+	}
+}
+
+quando for imprimir, mudar configurações
+@media only print {
+	h1 {
+		font-size: 30px;
+		font-weight: normal;
+	}
+}
+____________________________________________________________
+
+Orientação do celular
+
+body{
+	display: flex
+}
+
+div {
+	width: 100px;
+	height: 100px;
+	border: 3px solid #000;
+}
+
+@media (orientation: landscape){
+	body{
+		flex-direction: row;
+	}
+}
+
+@media (orientation: portrait){
+	body{
+		flex-direction: column;
+	}
+}
+____________________________________________________________
+
+quando a tela for um quadrado
+@media (aspect-radio: 1/1){
+	body{
+		background-color: royalblue;
+	}
+}
+quando a tela estiver no minimo com a largura o dobro da altura
+@media (min-aspect-radio: 2/1){
+	body{
+		background-color: royalblue;
+	}
+}
+quando a tela estiver no maximo com a altura o dobro da largura
+@media (max-aspect-radio: 1/2){
+	body{
+		background-color: royalblue;
+	}
+}
+____________________________________________________________
+
+Variaveis
+
+:root {
+	--bg-color: #000;
+	--bg-second: #444;
+	--font-color: #FFF;
+	--font-size: 25px;
+}
+
+no Html
+
+body {
+	background-color: var(--bg-color);
+}
+
+@media (max-width: 450px) {
+	:root {
+		--font-size: 15px;
+	}
+}
+____________________________________________________________
+
+HTML
+<div class="video">
+	<div class="video-area">
+		<iframe></iframe>
+	</div>
+</div>
+
+CSS
+
+.video{
+	width: 100%;
+	max-width: 800px;
+	margin: auto;
+}
+.video-area{
+	position: relative;
+	height: 0px;
+	background-color: #CCC;
+	padding: 0px 0px 56.25%;
+}
+.video-area iframe{
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	width: 100%;
+	height: 100%;
+	border: 0px;
+}
+____________________________________________________________
+
+Função MIN e MAX
+
+img {
+	width: max(50%, 300px); Usa o maior valor 
+	width: min(50%, 300px); Usa o menor valor 	
+}
+____________________________________________________________
+
+Função CALC
+
+.container {
+	width: calc(100% - 20px);
+}
+____________________________________________________________
+
+degrade
+
+background: linear-gradient(white, blue);
+background: -moz-linear-gradient(); mozilla antigo
+background: -o-linear-gradient(); opera antigo
+background: -webkit-linear-gradient(); safari antigo
+background: blue; IE antigo
+background: linear-gradient(-75deg,white, blue);
+background: linear-gradient(75deg,white, blue);
+____________________________________________________________
+
+animações
+
+@keyframes exemplo {
+	0% {background-color:red;top:0;left:0;}
+	25% {background-color:yellow;top:0;left:200;}
+	50% {background-color:blue;top:200;left:200;}
+	75% {background-color:green;top:200;left:0;}
+	100% {background-color:red;top:0;left:0;}
+}
+
+body {
+	margin: 0;
+}
+
+.exemplo {
+	width:150px;
+	height:150px;
+	background-color:red;
+	animation-name:exemplo;
+	animation-duration:4s;
+	animation-delay:2s;
+	animation-iteration-count:3; ( ou infinite )
+}
+____________________________________________________________
+
+Transição de CSS 
+
+.exemplo {
+	width:150px;
+	height:150px;
+	background-color:red;
+	transition:all 1s linear;(todas as mudanças - tempo - mudanças ao mesmo tempo)
+}
+.exemplo {
+	width:300px;
+	height:300px;
+	background-color:blue;
+}
+____________________________________________________________
+
+Engine Navegador(Webkit) Máquina de renderização 
+
+IE = Trident
+Edge = EdgeHTML
+Firefox = Gecko
+Opera = Webkit
+Safari = Webkit
+Chrome = Webkit
+____________________________________________________________
+
+WordWrap(quebra de linha texto dentro da div)
+
+word-wrap: normal;(padrão)
+word-wrap: break-word;(padrão)
+____________________________________________________________
+
+por elemento
+
+input, a {}
+
+por classe
+
+.nomedaclasse {}
+
+por id
+
+#iddoelemento {}
+
+por atributo
+
+[required] {}
+ou input[required] {}
+ou input[type=text] {}
+ou input[name="usuario"] {}
+ou a[href*="economia"] {} pesquisa quando link tem a palavra economia
+ou a[href^="https"] {} pesquisa quando link começar com a palavra https
+ou a[href$="html"] {} pesquisa quando link termina com a palavra html
+
+____________________________________________________________
+
+elemento sem conteúdo
+
+div:empty{
+	
+}
+____________________________________________________________
+
+Efeito na primeira letra do texto(p)
+
+p::first-letter {
+	font-size: 25px;
+	font-weight: bold;
+}
+
+Efeito na primeira linha do texto(p)
+
+p::first-line {
+	background-color: yellow;
+}
+
+Efeito no primeiro elemento(div)
+
+div:first-child {
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
+}
+
+div:last-child {
+	border-bottom-left-radius: 20px;
+	border-bottom-right-radius: 20px;
+}
+
+Seletor Negativo - aplica em todos os elementos menos o "p"
+
+body :not(p){
+	
+}
+____________________________________________________________
+
+Seletor NTH - começa do numero 1 - aplica no elemento da sequencia
+
+div:nth-child(2){ = 2º de cima pra baixo
+	
+}
+div:nth-last-child(2){ = 2º de baixo pra cima
+	
+}
+____________________________________________________________
+
+BEFORE / AFTER - antes e depois do elemento
+
+span::before {
+	content:"->";
+	background-color:#FF0000;
+	border:1px solid #000;
+}
+span::after {
+	content:"<-";
+	background-color:#FF0000;
+	border:1px solid #000;
+}
+
+quadrado antes do texto
+span::before {
+	content:"";
+	display: inline-block;
+	widht:20px;
+	height:20px;
+	background-color:#FF0000;
+}
+
+Criando um balão com BEFORE / AFTER
+.balao {
+	background-color: #0000FF;
+	display:inline-block;
+	color:#FFF;
+	padding: 20px;
+	border-radius: 20px;
+}
+.balao::after {
+	content:'';
+	display:block;
+	position: absolute;
+	margin-top:20px;
+	border:20px solid;
+	border-color: #0000FF transparent transparent transparent;
+	
+}
+____________________________________________________________
+
+"Escurecer" tela
+
+diciona um div e coloca as configurações RGBA
+
+div {
+	background-color: rgba(0, 0, 0, 0.5);
+	position: fixed;
+	left:0;
+	right:0;
+	top:0;
+	bottom:0;
+}
+____________________________________________________________
+
+Transform
+
+transform: scale(1,1); - zoom no elemento(1 = padrão)(horizontal, vertical)
+transform: scaleX(2); - zoom no elemento horizontal
+transform: scaleY(2); - zoom no elemento vertical
+transform: rotate(30deg); - girar elemento em graus sentido horario, negativo para anti-horario
+transform: rotateX(30deg); rotação horizontal no mesmo eixo
+transform: rotateY(30deg); rotação vertical no mesmo eixo
+transform: skewX(20deg); - distorção do elemento horizontal
+transform: skewY(20deg); - distorção do elemento vertical
+transform: skew(20deg, 20deg); - distorção do elemento(horizontal, vertical)
+____________________________________________________________
+
+BOX-SIZING
+
+box-sizing: content-box; tamanho do elemento = tamanho do conteudo (valor do conteudo)
+box-sizing: content-box; tamanho do elemento = tamanho do conteudo (conteudo + padding + border)
+
+ou * { box-sizing:border-box;} todos os elementos do CSS
+____________________________________________________________
+
+placeholder
+
+.input::placeholder { /* Todos os navegadores modernos */
+	color: #00FF00;
+}
+
+
+.input::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+	color: #00FF00;
+}
+
+.input:-moz-placeholder { /* Firefox 4 ao 18 */
+	color: #00FF00;
+}
+
+.input::-moz-placeholder { /* Firefox 19+ */
+	color: #00FF00;
+}
+
+.input:-ms-input-placeholder { /* IE 10 e 11 */
+	color: #00FF00;
+}
+
+.input::-ms-input-placeholder { /* MS Edge */
+	color: #00FF00;
+}
+____________________________________________________________
+
+CSS Grid
+
+.container {
+	display: grid;
+	
+	grid-template-columns: repeat(3, 1fr); (quantas x / medida)
+	ou grid-template-columns: 100px repeat(3, 1fr) 200px; (1 coluna com 100px + 3 colunas com 1fr + 1 coluna com 200px)
+	ou grid-template-columns: repeat(auto-fill, 300px); (quantas colunas de 300px couber na area disponivel)
+	ou grid-template-columns: 100px 100px 100px ;(3 colunas de 100px)
+	ou grid-template-columns: auto auto; (2 colunas preenchendo a tela)
+	ou grid-template-columns: 1fr 1fr; (2 colunas fracionadas na area disponivel)
+	
+	grid-template-rows: 100px (altura);
+	
+	grid-auto-column: minmax(50px, 200px) pode usar o maximo auto (tamanho fixo, minimo de 50 e maximo de 200) expandir por causa do texto
+	
+	grid-column-gap: 10px; ou column-gap: 10px;(depende do navegador)
+	
+	grid-row-gap: 10px; ou row-gap: 10px;(depende do navegador)
+	/* grid-gap: 10px 10px; (linha / coluna) ou gap: 10px 10px;(depende do navegador) */
+	
+}
+.item1 {
+	grid-column-start: 2;
+	grid-column-end: 4;
+	grid-row-start: 2;
+	grid-row-end: 5;
+}
+ou
+item1 {
+	grid-column: 1 / 3;
+	grid-row: 1 / 3;
+}
+ou 1 / span 3 ;
+____________________________________________________________
+
+Grid Area
+
+.item6 {
+	grid-area: ;
+	/* 	1º grid-row-start
+		2º grid-column-start
+		3º grid-row-end
+		4º grid-column-end */
+}
+
+.container {
+	display: grid;
+	grid-gap: 10px;
+	background-color: #CCC;
+	grid-template-areas: 
+		"item1 item1 item1"
+		"item2 item3 item4"
+	;
+}

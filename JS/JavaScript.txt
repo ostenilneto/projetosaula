@@ -1,0 +1,1076 @@
+usar tag <script></script> incluir dentro do <head> ou no final do <body> <script src="script.js"></script>
+melhor prática é no final do body
+
+____________________________________________________________
+
+Comentarios
+
+de 1 linha = usar //
+de 2 ou mais linhas = usar /* texto */
+____________________________________________________________
+
+Mostrar informações na tela
+
+document.getElementById("titulo").innerHTML = "Texto substitudo" troca o texto que está no elemento
+document.write("Algum texto") apresenta o texto na tela(se for adicionado no <head>)
+Se colocou no final do body ele substituirá todo o HTML(pagina) pelo texto
+
+window.alert("Texto") ou alert("Texto") mensagem na tela de pop-up
+console.log("Texto") aparecerá no console do navegador
+____________________________________________________________
+
+Variavel
+
+var nome = "Neto"
+var idade = 90;
+alert(idade);
+alert(nome);
+
+var x = 10;
+var y = 15;
+var total = x + y;
+alert(total);
+
+var nome = "Neto"; HOISTING - variavel global - pode ser redefinida
+let nome = "Neto"; disponivel apena na área declarada - não funciona no window - não pode ser redefinida
+const nome = "Neto"; valor constante - não pode ser redefinida - exceto array e objetos
+
+typeof 'nomevariavel' = mostra o tipo da variavel
+____________________________________________________________
+
+Condicionais
+
+&& = e
+var hora = 9;
+if ( hora >= 00 && hora < 12 ) {
+	console.log("Bom dia!")
+} else if ( hora >= 12 && hora < 18 ) {
+	console.log("Boa tarde!")
+} else if ( hora >= 18 && hora < 23 ) {
+	console.log("Boa noite!")
+}
+
+|| = ou
+var hora = 18;
+if ( hora == 12 || hora == 18 ) {
+console.log("Você está na hora do rush!")};
+____________________________________________________________
+
+DOM(Document Object Model)
+
+document.getElementById("titulo").innerHTML = "Texto substitudo" troca o texto que está no elemento = Pelo ID
+document.getElementsByClassName('lista')[0].innerHTML = "Texto substitudo" = Pelo nome da Classe, varios elementos
+document.getElementsByTagName('div') = Pelo nome da Tag, varios elementos
+document.getElementsByName('telefone') = Pelo nome do Input/Formulario, varios elementos
+document.querySelector('#exemplo').classList.add('verde') = seleciona o id exemplo e adiciona a classe para verde
+document.querySelector('#exemplo').classList.remove('verde') = seleciona o id exemplo e remove a classe para verde
+document.querySelector('button').classList.contains('preto')  = verifica se existe um botão com classe preto
+____________________________________________________________
+
+Funções
+
+function alterar() {
+	document.getElementById("titulo").innerHTML = "Trocou o titulo!";
+	document.getElementById("campo").value = "Trocou o campo!";
+}
+alterar();
+
+function alterar(titulo) {
+	document.getElementById("titulo").innerHTML = titulo;
+	document.getElementById("campo").value = titulo;
+}
+alterar("Qualquer texto!");
+
+function somar(x, y) {
+	let total = x + y;
+	document.getElementById("campo").value = total;
+}
+somar(4, 10);
+
+function somar(x, y) {
+	let total = x + y;
+	return	total;
+}
+var resultado = soma(10, 15);
+console.log(resultado);
+
+function trocarImagem(filename, animalname) {
+	document.querySelector('.imagem').setAttribute('src', 'images/+filename');
+	document.querySelector('.imagem').setAttribute('data-animal', animalname);
+}
+function pegarAnimal(){
+	let animal = document.querySelector('.imagem').getAttribute('data-animal');
+	alert("O animal é:"+animal);
+}
+____________________________________________________________
+
+Dimensões
+
+document.querySelector('.texto').offsetWidth = conta o tamanho da largura do elemento(largura + scrollbar + padding + borda)
+document.querySelector('.texto').offsetHeight = conta o tamanho da altura do elemento(altura + scrollbar + padding + borda)
+document.querySelector('.texto').clientWidth = conta o tamanho da largura do elemento(largura + padding)
+document.querySelector('.texto').clientHeight = conta o tamanho da altura do elemento(altura + padding)
+document.querySelector('.texto').scrollWidth = conta o tamanho real da largura do elemento(largura + padding)
+document.querySelector('.texto').scrollHeight = conta o tamanho real da altura do elemento(soma todo o conteudo)
+document.querySelector('.texto').scrollTop = qual a posição da barra de rolagem vertical
+document.querySelector('.texto').scrollLeft = qual a posição da barra de rolagem horizontal
+window.scrollX = quando a barra de rolagem é na tela inteira - horizontal
+window.scrollY = quando a barra de rolagem é na tela inteira - vertical
+
+Alterar barra de rolagem
+
+document.querySelector('.texto').scrollTo(0,0) = (X,Y) horizontal, vertical
+window.querySelector('.texto').scrollTo(0,0) = (X,Y) horizontal, vertical
+
+Scroll suave
+
+function subirTela() {
+	window.scrollTop({
+		top: 0,
+		left: 0,
+		behavior: 'smooth'
+	});
+}
+function decidirBotaoScroll(){
+	if(window.scrollY === 0) {
+		// ocultar o botão
+		document.querySelector('.scrollbutton').style.display = 'none';
+	} else {
+		// mostrar o botão
+		document.querySelector('.scrollbutton').style.display = 'block';
+	}
+}
+
+solução 1 - processa de 1 em 1 segundo sem necessidade
+setInterval(decidirBotaoScroll, 1000); 1000ms = 1 segundo
+
+solução 2 - só roda quando houver alguma alteração nas propriedades do Scroll
+window.addEventListener('scroll', decidirBotaoScroll);
+____________________________________________________________
+
+Eventos Mouse
+
+<button onclick()> quando clicar em cima do elemento
+<button onmouseover()> quando o ponteiro estiver em cima do elemento
+<button onmouseout()> quando tirar o ponteiro de cima do elemento
+____________________________________________________________
+
+Eventos Teclado
+
+<input onkeyup()> quando pressionar uma tecla dentro do elemento(somente quando soltar a tecla - gera evento)
+<input onkeydown()> quando pressionar uma tecla dentro do elemento(quando pressionar o botão - gera evento)
+
+function digitou(e){
+	if(e.keyCode == 13 && e.ctrlKey == true) { //Enter + Ctrl
+		let texto = document.getElementById("campo").value;
+		
+		console.log(texto);
+	}
+}
+____________________________________________________________
+
+Mudança de Estilo
+
+function trocar() {
+	if(document.querySelector('button').classList.contains('preto')) {
+		document.querySelector('button').classList.remove('preto');
+		document.querySelector('button').classList.add('verde');
+	} else {
+		document.querySelector('button').classList.remove('verde');
+		document.querySelector('button').classList.add('preto');
+	}
+}
+
+ou
+
+function azul() {
+	limpar();
+	document.querySelector('button').classList.add('azul');
+}
+function vermelho() {
+	limpar();
+	document.querySelector('button').classList.add('vermelho');
+}
+function verde() {
+	limpar();
+	document.querySelector('button').classList.add('verde');
+}
+
+function limpar() {
+	document.querySelector('button').classList.remove('azul');
+	document.querySelector('button').classList.remove('vermelho');
+	document.querySelector('button').classList.remove('verde');
+}
+____________________________________________________________
+
+Array (Lista numerada)
+
+let ingredientes = [
+	['uva','pera','maça'],
+	['arroz','macarrão']
+];
+
+console.log (ingredientes[1][0]);
+____________________________________________________________
+
+Objeto (Lista nomeada)
+
+let carro = {
+	nome:'Fiat',
+	modelo:'Uno',
+	peso:'800kg',
+	ligado:false,
+	ligar:function() {
+		console.log("Ligando o "+this.modelo);
+		this.ligado = true;
+		console.log("VRUM VRUM!");
+	},
+	acelerar:function() {
+		if(this.ligado == true){
+		console.log("Riiiiiiiiiiiihhhhih");
+		} else {
+			console.log(this.nome+" "+this.modelo+" não está ligado!");
+		}
+	}
+};
+
+console.log( "Modelo: "+carro.modelo );
+carro.ligar();
+carro.acelerar();
+
+let carros = [
+	{nome: 'Fiat', modelo:'Palio'},
+	{nome: 'Fiat', modelo:'Uno'},
+	{nome: 'Toyota', modelo:'Corolla'},
+	{nome: 'Ferrari', modelo:'Spider'}
+]
+
+console.log(carros[2].modelo);
+____________________________________________________________
+
+Switch(quando for camparativo e houver mais de 2 opções)
+
+let dia = 3;
+let diaNome = '';
+
+switch(dia) {
+	case 1:
+		diaNome = 'Segunda-Feira';
+		break;
+	case 2:
+		diaNome = 'Terça-Feira';
+		break;
+	case 3:
+		diaNome = 'Quarta-Feira';
+		break;
+	case 4:
+		diaNome = 'Quinta-Feira';
+		break;
+	case 5:
+		diaNome = 'Sexta-Feira';
+		break;
+	case 6:
+		diaNome = 'Sábado';
+		break;
+	case 7:
+		diaNome = 'Domingo';
+		break;
+	default:
+		diaNome = 'Digite um número válido!';
+		break;
+}
+document.getElementById("dia").innerHTML = "Hoje é: "+diaNome;
+
+ou
+
+let dia = 3;
+let diaNome = '';
+
+switch(dia) {
+	case 6:
+		diaNome = 'Final de semana';
+		break;
+	case 7:
+		diaNome = 'Final de semana';
+		break;
+	default:
+		diaNome = 'Dia de semana';
+		break;
+}
+document.getElementById("dia").innerHTML = "Hoje é: "+diaNome;
+
+ou
+
+let dia = 3;
+let diaNome = '';
+
+switch(dia) {
+	case 6:
+	case 7:
+		diaNome = 'Final de semana';
+		break;
+	default:
+		diaNome = 'Dia de semana';
+		break;
+}
+document.getElementById("dia").innerHTML = "Hoje é: "+diaNome;
+____________________________________________________________
+
+Loop For
+
+//FOR LOOP
+
+let text = '';
+
+for (let i = 0; i <= 50; i++) {
+	texto = texto + i + '<br/>';
+}
+
+document.getElementById("demo").innerHTML = texto;
+
+// FOR LOOP ARRAY
+
+let carros = ['Ferrari','Fusca','Palio','Corolla']
+let html = '<ul>';
+
+for (let i in carros) {
+	html += '<li>' + carros[i] + '</li>';
+}
+
+html += '</ul>';
+
+document.getElementById("demo").innerHTML = html;
+____________________________________________________________
+
+Loop While
+
+let html = '';
+let c = 0;
+
+while (c <= 10) {
+	html += "Número: " +c+ "<br/>";
+	c++;
+}
+
+document.getElementById("demo").innerHTML = html;
+____________________________________________________________
+
+QuerySelector / QuerySelectorAll
+
+document.querySelector('') = retorna o primeiro que achar - busca por nome ou classe ou idade
+document.querySelectorAll('') = traz todos os resultados da busca em Array
+____________________________________________________________
+
+Strings
+
+let nome = 'Ostenil Jose da Silva Neto';
+console.log( nome.length );
+
+ou 
+
+let nome = 'Ostenil Jose da Silva Neto';
+let resultado = nome.length;
+console.log( resultado );
+
+nome.length = quantidade de caracteres (26)
+nome.indexOf('Neto') = aonde começa a palavra Neto(22) - se não encontrar retorna -1
+nome.slice(0, 10) = busca apartir da posição 0 (inicial - obrigatorio), até a posição 10
+// permite fazer nome.slice(-4) = contagem do fim pro começo, pega os ultimos 4 caracteres
+nome.substring(0, 10) = busca apartir da posição 0 (inicial - obrigatorio), até a posição 10
+// não permite fazer contagem do fim pro começo
+nome.substr(8, 3) = busca apartir da posição 0 (inicial - obrigatorio), quantidade de caracteres 10
+// permite fazer nome.substr(-4, 2) = contagem do fim pro começo, inicia na posição 4 e pega os ultimos 2 caracteres
+
+let resultado = nome.replace('Neto', 'Junior') //pesquisa a palavra 'Neto' e substitui pela palavra 'Junior'
+let resultado = nome.toUpperCase() // todo o text em maiusculo
+let resultado = nome.toLowerCase() // todo o text em minusculo
+let resultado = nome.concat('texto') // concatenar(juntar) texto
+let resultado = nome.trim() // retirar espaços do texto
+let resultado = nome.charAt(3) // saber qual caractere está na posição 3
+let resultado = nome[3] // saber qual caractere está na posição 3 - comando mais recente
+let resultado = nome.split(' ') // vai separar todos os nomes e transforma em array
+
+//exemplo
+let nome = 'Ostenil Jose da Silva Neto';
+let resultado = '';
+
+if(nome.indexOf('Souza') > -1) {
+	resultado = 'Achou!';
+} else {
+	resultado = 'Não achou!';
+}
+
+console.log( resultado );
+____________________________________________________________
+
+Template Strings // usar acento como aspas = ``
+
+let nome = 'Neto';
+let idade = '32';
+let frase = `Meu nome é ${nome}, eu tenho ${idade} anos e no ano que vem eu farei ${idade+1} anos.`;
+console.log(frase);
+____________________________________________________________
+
+Numeros
+
+let res = n.toString(); // transforma numero em String
+let res = n.toFixed(2); // transforma numero em 2 decimais (10.65) arredonda valor
+let res = parseInt(n); // transforma texto em Integer
+let res = parseFloat(n); // transforma texto em Float se houver decimais
+____________________________________________________________
+
+Array
+
+let res = lista.toString(); // transforma tudo em uma String
+let res = lista.join('tipodeseparacaodositens'); // transforma tudo em uma String usando o separador que estiver ()
+let res = lista.indexOf('item'); // busca item no array - retorna a posição que ele está, retorna -1 se não encontrar
+lista.pop(); // remove o último item do Array
+lista.shift(); // remove o primeiro item do Array
+lista.push('texto'); // adiciona 1 item ao Array
+lista[0] = 'texto'; // altera o item no Array, se não houver o item da [], ele adicionará o item
+delete lista[1]; // deleta item mas fica a posição no Array
+lista.splice(1,2); // deleta item do Array(remover a partir do item 1, 2 item. 
+lista.splice(1); // deleta tudo menos o primeiro item do Array. 
+let res = lista.concat(lista2); // une 2 listas em uma
+lista.sort(); // ordena o Array em ordem alfabetica
+lista.reverse(); // inverte a ordem do Array
+
+let lista = [45, 4, 9, 16, 25];
+let lista2 = [];
+lista2 = lista.map(function(item){
+	return item * 2;
+});
+let res = lista2;
+console.log(res);// alimenta a lista2 com o dobro do valor dos itens da lista
+
+lista.filter(function(item){
+	if(item < 20){
+		return true;
+	} else {
+		return false;
+	}
+}); // filtro itens < 20
+
+lista.every(function(item){
+	if(item > 20){
+		return true;
+	} else {
+		return false;
+	}
+}); // filtro todos itens > 20, retorna true ou false
+
+ou 
+
+lista.every(function(item){
+	return (item > 3)? true:false
+}); // filtro todos itens > 20, retorna true ou false
+
+lista.some(function(item){
+	if(item > 20){
+		return true;
+	} else {
+		return false;
+	}
+}); // filtro se houver pelo menos 1 item > 20, retorna true ou false
+
+lista.find(function(item){
+	return (item == 16)? true:false
+)}; // procura se existe o item no Array e apresenta ele
+
+lista.findIndex(function(item){
+	return (item == 16)? true:false
+)}; // procura se existe o item no Array e apresenta a posição dele
+____________________________________________________________
+
+Data
+
+let d = new Date();
+console.log(d); // apresenta todas as informações(dia da semana, mes, data, ano, hora, fuso-horario GMT-0300
+console.log(d.toDateString); // apresenta as informações de data(dia da semana, mes, data, ano
+console.log(d.toUTCString); // apresenta as informações de data convertidas no GMT(dia da semana, mes, data, ano, hora, fuso-horario GMT
+console.log(d.toString); // apresenta todas as informações como String(dia da semana, mes, data, ano, hora, fuso-horario GMT-0300
+
+new Date(2020, 0, 1, 12, 30, 12); // ano, mes(0 a 11), dia, hora, minutos, segundos
+new Date('2020-01-01 15:42:17'); // ou
+
+let novoValor = d.getFullYear // retorna somente o ano
+let novoValor = d.getMonth // retorna somente o mês(0 a 11)
+let novoValor = d.getDay // retorna somente o dia da semana(0-domingo a 6-sábado)
+let novoValor = d.getDate // retorna somente o dia
+let novoValor = d.getHours // retorna somente as horas
+let novoValor = d.getMinutes // retorna somente os minutos
+let novoValor = d.getSeconds // retorna somente os segundos
+let novoValor = d.getMilliseconds // retorna somente os milisegundos
+let novoValor = d.getTime // retorna quantidade milisegundos de 01-01-1970 até a data selecionada
+
+d.setFullYear(2023) // Trocar a data para 2023
+d.setMonth(11) // Trocar o mês para Dezembro
+d.setDate(15) // Trocar o dia para 15
+d.setDate( d.getDate() +5 ) // Aumenta 5 dias na data de hoje
+d.setHours( d.getHours() +5 ) // Aumenta 5 horas na hora atual
+____________________________________________________________
+
+Matemática
+
+Math.PI // calcular o PI
+Math.round(3.67) // arredondar para 4
+Math.floor(3.99) // arredondar pra baixo 3
+Math.ceil(3.1) // arredondar pra cima 4
+Math.abs(-9.65) // retorna o numero como positivo 9.65
+Math.min(7, 100, 600, 20, 3) // retorna o menor numero 3
+Math.max(7, 100, 600, 20, 3) // retorna o maior numero 600
+Math.random() // retorna um numero aleatorio entre 0 e 1
+Math.floor(Math.random() * 100) // retorna um numero aleatorio entre 0 e 100
+Math.sin //Calcular o Seno
+Math.cos //Calcular o Cosseno
+Math.tan //Calcular a Tangente
+____________________________________________________________
+
+Intervalos(Timers)
+
+let timer; // criação da variavel
+function comecar () {
+	timer = setInterval(ShowTime, 1000); // timer pra rodar a função de 1 a 1 segundo
+}
+function parar () {
+	clearInterval(timer); // parar timer
+}
+function showTime() {
+	let d = new Date();
+	let h = d.setHours();
+	let m = d.getMinutes();
+	let s = d.getSeconds();
+	let txt = h+':'+m+':'+s;
+	document.querySelector('.classe').innerHTML = txt;
+}
+
+_
+
+let timer; // criação da variavel
+function rodar() {
+	timer = setTimeout(function() {
+		document.querySelector('.classe').innerHTML = 'Rodou!';
+	}, 2000);
+} // Roda após 2 segundos
+function parar() {
+	clearTimeout(timer);
+} // Para antes de rodar
+
+setInterval - criar rotinas para execução, ficará executando até pedir pra parar
+setTimeout - Roda uma unica x 
+____________________________________________________________
+
+Desconstruindo Objetos
+
+let pessoa = {
+	nome: 'Ostenil',
+	sobrenome: 'Neto',
+	idade: 32,
+	social:{
+		facebook: 'ostenilneto',
+		instagram: 'ostenilneto'
+	},
+	nomeCompleto: function() {
+		return `${this.nome} ${this.sobrenome}`
+	}
+};
+console.log(pessoa.nomeCompleto());
+console.log(pessoa.social.facebook);
+
+
+let { nome,sobrenome,idade } = pessoa;
+console.log(nome, sobrenome, idade);
+
+let { nome:nomePessoa, endereco = 0 } = pessoa; //renomear variavel externa, se não tiver endereço retorna 0
+console.log(nomePessoa);
+
+let { nome,idade,social:{ instagram } } = pessoa;
+console.log( nome, idade, instagram );
+
+function pegarNomeCompleto({nome, sobrenome}){
+	return `${nome} ${sobrenome}`;
+};
+console.log(pegarNomeCompleto(pessoa));
+____________________________________________________________
+
+Desconstruindo Array
+
+let info = [ 'Ostenil Neto','Ostenil','Neto','@ostenilneto' ];
+let [ nomeCompleto, nome, sobrenome, instagram ] = info;
+console.log( nomeCompleto, nome, sobrenome, instagram );
+
+let [ nome, sobrenome, idade = 32] = ['Ostenil', 'Neto'];
+console.log( nome, sobrenome, idade );
+____________________________________________________________
+
+Arrow Function - Função flecha // não funciona com o objeto this
+
+let somar = (x, y) => {
+	return x + y;
+}
+
+ou 
+
+let somar = (x, y) => x + y;
+
+// quando tiver somente uma variavel:
+
+let letrasNoNome = (nome) => nome.length;
+ou
+let letrasNoNome = nome => nome.length;
+____________________________________________________________
+
+Operador Spread // Fazer um array ou objetos com os numeros de outro e se quiser, acrescentar mais numeros
+
+let numeros = [1,2,3,4];
+let outros = [...numeros,5,6,7,8];
+
+ou
+
+let info = {
+	nome: 'Ostenil',
+	sobrenome: 'Neto',
+	idade: 32
+};
+let novaInfo = {
+	...info,
+	cidade:'Igarapava',
+	estado:'São Paulo',
+	pais:'Brasil'
+}
+
+ou
+
+function adicionarInfo(info) {
+	let novaInfo = {
+	...info,
+	cidade:'Igarapava',
+	estado:'São Paulo',
+	pais:'Brasil'
+	};
+	return novaInfo;
+}
+console.log(adicionarInfo({nome: 'Ostenil', sobrenome: 'Neto', idade: 32}));
+____________________________________________________________
+
+Operador Rest
+
+function adicionar(...numeros) {
+	console.log(numeros);
+}
+adicionar(5, 6, 7, 8, 9, 10);
+	
+ou
+
+function adicionar(...nomes) {
+	console.log(nomes);
+}
+adicionar("Ostenil", "Jose", "Silva", "Neto");
+	
+ou
+
+function adicionar(nomes, ...novosNomes) {
+	let novoConjunto = [
+		...nomes,
+		...novosNomes
+	];
+	return novoConjunto; 
+}
+let nomes = ["João", "Maria"];
+let outros = adicionar(nomes, "Ostenil", "Jose", "Silva", "Neto"); 
+console.log(outros);
+____________________________________________________________
+
+Includes(retorna true ou false) e Repeat
+
+let lista = ['ovo', '', 'café', 'arroz', 'feijão', 'macarrão'];
+console.log(lista.includes('ovo'));
+
+ou
+
+let nome = 'Ostenil';
+console.log(nome.includes('i')); 
+
+___
+
+console.log('x'.repeat(20));
+
+ou
+
+let nome = 'Ostenil';
+console.log(nome.repeat(2)); 
+____________________________________________________________
+
+Objeto: Key, Values e Entries
+
+let lista = ['ovo', 'macarrão', 'feijão', 'pipoca'];
+
+console.log( Object.keys(lista)); // retorna as chaves de posição de cada objeto
+console.log( Object.values(lista)); // retorna os valores de cada objeto
+console.log( Object.entries(lista)); // traz o index + chaves + valores do objeto
+____________________________________________________________
+
+String, padStart, padEnd
+
+let telefone = '5';
+console.log(telefone.padEnd(9, '*')); // preenche da esquerda pra direita(caracteres que tem que ter, item para inserção)
+console.log(telefone.padStart(9, '*')); // preenvhe da direita pra esquerda(caracteres que tem que ter, item para inserção)
+
+let cartao = '1234123412341234';
+let lastDigits = cartao.slice(-4);
+let cartaoMascarado = lastDigits.padStart(16, '*');
+console.log('Este é o seu cartão? '+cartaoMascarado);
+____________________________________________________________
+
+Requisições JSON (JavaScript Object Notation)
+
+JSON.parse - transforme uma string em JSON
+JSON.stringify - transforme um JSON em string
+____________________________________________________________
+
+Código síncrono vs assíncrono
+
+// CÓDIGO SÍNCRONO(le linha por linha, espera processar a linha )
+let nome = 'Ostenil';
+let sobrenome = 'Neto';
+let completo = nome+ ' ' +sobrenome;
+
+
+// CÓDIGO ASSÍNCRONO(não espera)
+let nome = 'Ostenil';
+let sobrenome = 'Neto';
+let temperatura = Maquininha.pegarTemperatura(); // não espera processar a linha(ASSINCRONO)
+let completo = nome+ ' ' +sobrenome;
+____________________________________________________________
+
+Callbacks ( executa somente quando houver o resultado ou conforme o time for atingido)
+____________________________________________________________
+
+Promises ( promessa - resolve(se der certo) ou reject(se der errado))
+
+function pegarTemperatura(){
+	return new Promise(function(resolve, reject) {
+		console.log("pegando temperatura ...");
+		
+		setTimeout(function() {
+			resolve('40 na sombra');
+		}, 2000);
+	});
+}
+// Usando a Promise
+let temp = pegarTemperatura();
+temp.then(function(resultado) {
+	console.log("Temperatura: "+resultado);
+});
+temp.catch(function(error) {
+	console.log("Eita, deu erro!");
+});
+____________________________________________________________
+
+Fetch GET
+
+fetch('https://jsonplaceholder.typicode.com/posts', {
+	
+}) // URL, {configurações}(opcional)
+
+//Receber Posts
+
+function loadPosts() {
+    fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(function(resultado){
+        return resultado.json();
+    })
+    .then(function(json){
+        console.log(json);
+    })
+    .catch(function(error){
+        console.log("Deu problema!");
+    });
+}
+
+//Contar Posts
+
+function loadPosts() {
+    fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(function(resultado){
+        return resultado.json();
+    })
+    .then(function(json){
+        document.getElementById("posts").innerHTML = json.length+' posts';
+    })
+    .catch(function(error){
+        console.log("Deu problema!");
+    });
+}
+____________________________________________________________
+
+Async e Await
+
+// uso normal
+function loadPosts() {
+    document.getElementById("posts").innerHTML = 'Carregando . . .';
+    fetch('https://jsonplaceholder.typicode.com/posts')
+    .then(function(resultado){
+        return resultado.json();
+    })
+    .then(function(json){
+        montarBlog(json);
+    })
+    .catch(function(error){
+        console.log("Deu problema!");
+    });
+}
+
+//uso com Async e Await
+async function loadPosts() {
+    document.getElementById("posts").innerHTML = 'Carregando . . .';
+    let req = await fetch('https://jsonplaceholder.typicode.com/posts');
+    let json = await req.json();
+} // recebe informações
+____________________________________________________________
+
+Fetch POST
+
+async function inserirPosts() {
+    document.getElementById("posts").innerHTML = 'Carregando . . .';
+
+    let req = await fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',
+        body: JSON.stringify ({
+            title: 'Titulo de teste',
+            body: 'Corpo de teste',
+            userID: 4
+        }),
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    });
+    let json = await req.json();
+    console.log(json);
+} // envio de informações
+____________________________________________________________
+
+Upload de arquivos com JS
+
+async function enviar() {
+    let arquivo = document.getElementById('arquivo').files;
+    
+    //quando tem arquivo usar a classe formdata
+    let  body = new FormData();
+    body.append('title', 'bla bla bla');
+    body.append('arquivo', arquivo);
+    
+    let req = await fetch('https://meusite.com.br/upload', {
+        method: 'POST',
+        body: body,
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    });
+}
+____________________________________________________________
+
+Thumbnails com JS // upload de imagem pra tela
+
+function mostrar() {
+    let imagem = document.getElementById("imagem").files[0]; //variavel imagem recebe a imagem
+    let img = document.createElement("img"); // cria um elemento
+    img.src = URL.createObjectURL(imagem); // gera a url da imagem e insere a propriedade na tag img
+    img.width = 200; // insere o tamanho da imagem
+    document.getElementById("area").appendChild(img); // transforma o objeto em imagem
+}
+____________________________________________________________
+
+Thumbnails com FileReader
+
+function mostrar() {
+    let reader = new FileReader(); // Leitor de arquivo
+    let imagem = document.getElementById("imagem").files[0]; //variavel imagem recebe a imagem
+    reader.onloadend = function() { // quando finalizar o carregamento da imagem, roda a função
+        let img = document.createElement("img"); // cria um elemento
+        img.src = reader.result;  // gera a url da imagem e insere a propriedade na tag img
+        img.width = 200; // insere o tamanho da imagem 
+        
+        document.getElementById("area").appendChild(img);  // transforma o objeto em imagem
+    }
+    reader.readAsDataURL(imagem);  // lê a imagem após o retorno da function
+}
+____________________________________________________________
+
+Prática - Compra Pizza
+
+let modalQt = 1; // variavel quantidade do Modal
+let cart = []; // variavel array carrinho
+let modalKey = 0; // variavel para identificar a pizza no carrinho
+
+const c = (el)=> document.querySelector(el); // retorna o item
+const cs = (el)=> document.querySelectorAll(el); // retorna um array com os itens
+// como irá repetir muitas x, criar uma constante
+
+pizzaJson.map((item, index)=>{ // listagens das pizzas
+    let pizzaItem = c('.models .pizza-item').cloneNode(true); //preencher as informações em pizzaitem
+    
+    pizzaItem.setAttribute('data-key', index); // cria um atributo com a chave sequencia das pizzas
+    pizzaItem.querySelector('.pizza-item--img img').src = item.img; // insere imagem
+    pizzaItem.querySelector('.pizza-item--name').innerHTML = item.name; // insere nome
+    pizzaItem.querySelector('.pizza-item--desc').innerHTML = item.description; // insere descrição
+    pizzaItem.querySelector('.pizza-item--price').innerHTML = `R$ ${item.price.toFixed(2)}`; // insere valor 2 casas decimais
+    pizzaItem.querySelector('a').addEventListener('click', (e)=>{
+        e.preventDefault(); // retira a configuração que atualizava tela ao clicar nas imagens da pizza
+        let key = e.target.closest('.pizza-item').getAttribute('data-key'); // atribuindo chave ao item
+        modalQt = 1; // sempre que abrir a tela da pizza abrirá com quantidade = 1
+        modalKey = key; // adiciona a chave da pizza para ir para o carrinho
+        
+        c('.pizzaBig img').src = pizzaJson[key].img; // insere nome
+        c('.pizzaInfo h1').innerHTML = pizzaJson[key].name; // insere nome
+        c('.pizzaInfo--desc').innerHTML = pizzaJson[key].description; // insere descrição
+        c('.pizzaInfo--actualPrice').innerHTML = `R$ ${pizzaJson[key].price.toFixed(2)}`; // insere valor 2 casas decimais
+        c('.pizzaInfo--size.selected').classList.remove('selected'); // tirar seleção da ultima pizza quando abrir novamente a mesma pizza
+
+        cs('.pizzaInfo--size').forEach((size, sizeIndex)=>{
+            if (sizeIndex == 2) {
+                size.classList.add('selected');
+            } // quando abrir novamente a tela a opção GRANDE ficará selecionado(reset)
+            size.querySelector('span').innerHTML = pizzaJson[key].sizes[sizeIndex];
+        }); // busca os tamanhos de pizza para todos as pizzas
+
+        c('.pizzaInfo--qt').innerHTML = modalQt;
+
+        c('.pizzaWindowArea').style.opacity = 0; // inicia com opacidade = 0
+        c('.pizzaWindowArea').style.display = 'flex'; // aparecer a tela de adicionar item
+        setTimeout(()=>{
+            c('.pizzaWindowArea').style.opacity = 1;
+        },200); // após 200ms a tela aparece - animação
+    })
+
+    c('.pizza-area').append(pizzaItem);
+});
+
+// eventos do modal
+function closeModal() {
+    c('.pizzaWindowArea').style.opacity = 0; // muda a opacidade = 0
+    setTimeout(()=>{
+        c('.pizzaWindowArea').style.display = 'none'; // fechar a tela de adicionar item
+    },500); // após 500ms a tela aparece - animação
+} //fechar tela do modal
+
+cs('.pizzaInfo--cancelButton, .pizzaInfo--cancelMovileButton').forEach((item)=>{
+    item.addEventListener('click', closeModal);
+}); // executar evento closemodal ao clicar no cancelar
+
+c('.pizzaInfo--qtmenos').addEventListener('click', ()=>{
+    if (modalQt > 1) {
+        modalQt--;
+    c('.pizzaInfo--qt').innerHTML = modalQt
+    }//só reduz se for maior que 1    
+}); // subtrair -1 ao clicar no -
+
+c('.pizzaInfo--qtmais').addEventListener('click', ()=>{
+    modalQt++;
+    c('.pizzaInfo--qt').innerHTML = modalQt;
+}); // adicionar +1 ao clicar no +
+
+cs('.pizzaInfo--size').forEach((size, sizeIndex)=>{
+    size.addEventListener('click', (e)=>{
+        c('.pizzaInfo--size.selected').classList.remove('selected');
+        size.classList.add('selected');
+    });
+}); // selecionar tamanho pizza
+
+c('.pizzaInfo--addButton').addEventListener('click', ()=>{
+    let size = parseInt(c('.pizzaInfo--size.selected').getAttribute('data-key'));// Qual o tamanho?
+    let identifier = pizzaJson[modalKey].id+'@'+size; // identificar pizza e tamanho
+    
+    let key = cart.findIndex((item)=>item.identifier == identifier); // busca se já tem identificador e não repete se tiver
+    if (key > -1) {
+        cart[key].qt += modalQt;
+    } else {
+        cart.push ({
+            identifier,
+            id:pizzaJson[modalKey].id, //Adiciona o id da pizza escolhida ao carrinho
+            size, // adiciona o tamanho da pizza escolhida ao carrinho
+            qt:modalQt // adiciona a quantidade de pizza escolhida ao carrinho
+        });
+    }
+    updateCart();
+    closeModal();
+}); // botão adicionar ao carrinho, direciona para 
+
+c('.menu-openner').addEventListener('click',()=> {
+    if (cart.length > 0) {
+        c('aside').style.left = '0';
+    }
+}); // aparecer carrinho celular
+c('.menu-closer').addEventListener('click',()=> {
+        c('aside').style.left = '100vw';
+}); // fechar carrinho celular
+
+function updateCart() {
+
+    c('.menu-openner span').innerHTML = cart.length; // atualiza a qtd no carrinho do Mobile
+
+
+    if(cart.length > 0) {
+        c('aside').classList.add('show'); // aparecer carrinho
+        c('.cart').innerHTML = ''; // zera os item selecionados
+
+        let subtotal = 0;
+        let desconto = 0;
+        let total = 0;
+        
+
+        for (let i in cart) {
+            let pizzaItem = pizzaJson.find((item)=>item.id == cart[i].id); // procura dados do item
+            subtotal += pizzaItem.price * cart[i].qt; // valor pizza x quantidade
+
+            let cartItem = c('.models .cart--item').cloneNode(true); // copia os dados
+            let pizzaSizeName;
+
+            switch(cart[i].size) {
+                case 0:
+                    pizzaSizeName = 'P';
+                    break;
+                case 1:
+                    pizzaSizeName = 'M';
+                    break;
+                case 2:
+                    pizzaSizeName = 'G';
+                    break;
+                            
+            } // substitui o valor do array por P, M ou G
+
+            let pizzaName = `${pizzaItem.name} (${pizzaSizeName})`; // concatena noma + tamanho
+
+            cartItem.querySelector('img').src = pizzaItem.img; // add imagem ao carrinho
+            cartItem.querySelector('.cart--item-nome').innerHTML = pizzaName; // add nome + tamanho pizza ao carrinho
+            cartItem.querySelector('.cart--item--qt').innerHTML = cart[i].qt; // add a quantidade ao carrinho
+            cartItem.querySelector('.cart--item-qtmais').addEventListener('click', ()=> {
+                cart[i].qt++;
+                updateCart();
+            }); // adicionar +1 na quantidade ao carrinho
+            cartItem.querySelector('.cart--item-qtmenos').addEventListener('click',()=> {
+                if (cart[i].qt > 1) {
+                    cart[i].qt--;
+                } else {
+
+                    cart.splice(i,1); // remove 1 item do carrinho se a qtd = 0
+                }
+                updateCart();
+            }); // subtrair -1 na quantidade ao carrinho
+               
+
+            c('.cart').append(cartItem); // adiciona os itens
+
+            desconto = subtotal * 0.1; // valor desconto
+            total = subtotal - desconto; // valor total
+
+            c('.subtotal span:last-child').innerHTML = `R$ ${subtotal.toFixed(2)}`; // apresenta o subtotal na tela;
+            c('.desconto span:last-child').innerHTML = `R$ ${desconto.toFixed(2)}`; // apresenta o subtotal na tela;
+            c('.total span:last-child').innerHTML = `R$ ${total.toFixed(2)}`; // apresenta o subtotal na tela;
+
+        }
+    } else {
+        c('aside').classList.remove('show'); // fechar carrinho ao zerar itens
+        c('aside').style.left = '100vw'; // fechar carrinho ao zerar itens Mobile
+    }
+} 

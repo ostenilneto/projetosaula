@@ -1,0 +1,262 @@
+<html></html>
+____________________________________________________________
+
+<head></head> cabeçalho
+____________________________________________________________
+
+<title></title> título
+____________________________________________________________
+
+<body></body> corpo página
+____________________________________________________________
+
+<h1></h1> <h6></h6> tamanho fonte
+____________________________________________________________
+
+Meta tag (social sharing)(página precisa está ativa)
+
+criar link do site para divulgação em rede social
+
+developers.facebook.com > Sharing Debugger
+
+<meta charset="UTF-8" /> corrigir acentuação 
+<meta property="og:url" content=" url do site " /> 
+<meta property="og:type" content="article" /> 
+<meta property="og:title" content=" titulo do artigo " /> 
+<meta property="og:description" content=" descrição do artigo " /> 
+<meta property="og:image" content=" link imagem " /> (tamanho maximo: 1200x630, 5mb)
+
+developers.facebook.com
+Docs > Open Graph Stories > Object Properties
+
+____________________________________________________________
+
+<p></p> parágrafo
+____________________________________________________________
+
+<a href=""></a>  âncora link 
+____________________________________________________________
+
+<img src="" alt="" /> imagens - texto alternativo
+____________________________________________________________
+
+<button> </button> botão
+____________________________________________________________
+
+<br/> quebra de linha
+____________________________________________________________
+
+Para indice de procura no Google
+<dl> inicio da lista </dl>
+<dt> título </dt>
+<dd> descrição </dd>
+____________________________________________________________
+
+<ul></ul> lista desordenada
+____________________________________________________________
+
+<li></li> linha  
+____________________________________________________________
+
+<ol></ol>lista ordenada
+____________________________________________________________
+
+<a href="" target="_blank"></a>  Abrir link em outra aba navegador
+____________________________________________________________
+
+<a href="" title="_"></a> texto ao posicionar mouse em cima
+____________________________________________________________
+
+ <a href="https://www.google.com.br">
+	<img src="https://www.google.com.br/google.jpd"/>
+	Ir para o site do Google
+ </a>
+____________________________________________________________
+
+  <body>
+	<a href="#area2"> Ir para a área 2</a>
+	
+	<h2 id="area1">Área 1</h2>
+	<img src="https://www.google.com.br/google.jpd"/>
+	<h2 id="area2">Área 2</h2>
+	<img src="https://www.google.com.br/google.jpd"/>	
+		<h2 id="area3">Área 3</h2>
+	<img src="https://www.google.com.br/google.jpd"/>
+	
+  </body>
+____________________________________________________________
+
+<b></b> negrito
+<strong></strong> negrito + semântica de importância (leitura para cegos)
+<i></i> italico
+<em></em> italico + semântica de importância (leitura para cegos)
+<small></small> fica um pouco menor do que o padrão
+<del></del> risco em cima da palavra
+<mark></mark> marca texto
+<sup></sup> coloca a palavra/letra para cima no texto
+<sub></sub> coloca a palavra/letra para baixo no texto
+____________________________________________________________
+
+Inserir comentarios no código
+<!-- comentario qualquer, explicação de alguma coisa -->
+____________________________________________________________
+
+Listas
+
+<ul style="list-style-type:disc"></ul>
+disc = bola preenchida
+square = quadrado
+circle = circulo
+none = nenhum
+
+<ol type:"1"></ol>
+1 = sequencia de numeros 
+A = inicia com A 
+a = inicia com a
+I = algaritimos romanos maiusculos
+i = algaritimos romanos minusculos
+
+<ol start:"45"></ol> iniciar pelo numero 45
+____________________________________________________________
+
+<table></table> criação de tabela
+<thead></thead> caixa de cabeçalho
+<th></th> criação de cabeçalho
+<tbody></tbody> caixa corpo da tabela
+<tr></tr> criação de linha
+<td></td> criação de coluna
+<pre></pre> – Tag utilizada para representar texto pré-formatado.
+<hr/> – Essa tag não necessita de fechamento, ela forma uma linha horizontal.
+____________________________________________________________
+
+<form></form> criação de formulario
+se colocar a opção "required" o formulario só será enviado, se o input estiver preenchido 
+<form action="login.html" method="GET"></form> GET = informações vão para barra de endereço / POST = informações vão internamente
+<input type="text" name="usuario" value="valor pré-preenchido do campo"/>
+- text = caixa de texto
+- email = caixa de texto com validação de email
+- password = caixa de senha (*****)
+- color = palheta de cor
+- date = seleção de data(calendário)
+- datetime-local = seleção de data e hora
+- month = seleção de mês
+- number = só receberá numeros
+- range = barra seleção de range
+- search = barra de procura
+- tel = caixa para telefone
+- time = somente hora
+- url = formatado para url
+- week = seleção de semana do ano
+
+checkbox = caixa de seleção
+radio = caxia de seleção unica(colocar atributo name="" mesmo nome pro grupo de seleção)
+submit = botão de envio
+
+<select name="" size="" multiple>
+	<option value="" selected></option> 
+</select>
+Quando não declarar o value, ele enviará o valor que apresentar na tela.
+select = a opção que virá selecionada 
+size = quantidade permitida para seleção
+multiple = select de multipla escolha
+____________________________________________________________
+
+<textarea name="" style="width:400px;height:200px;"></textarea> campo multi-linhas
+<button></button> funciona fora do formulario, dentro do formulario é igual ao submit
+<label for="ID do input"></label> permite selecionar o elemento clicando no texto em x do elemento
+____________________________________________________________
+
+dentro do body pro motor de busca saiba:
+<header></header>  resumo do site
+<nav></nav> colocar os menus dentro dessa tag
+<footer></footer> rodape do site
+<section></section> separa o conteudo por assunto
+<article></article> conteúdo primario da página
+<aside></aside> conteudo secundário da página
+<time datetime="2021-01-01"></time> marcar o texto para indicar data
+
+<video width = "320" height="240" autoplay(abrir site com video executando) controls(aparecer o controle em baixo do video)><source src="nomevideo.mp4" type="video/mp4" /></video> inserir video
+
+<audio controls autoplay loop(ficar repetindo) muted(iniciar com volume mutado) preload(carregar primeiro no lugar do autoplay)><source src="nomevideo.mp3" type="audio/mpeg" /></audio> inserir audio
+____________________________________________________________
+
+<fieldset></fieldset> Conjunto de campos 
+<legend></legend> cabeçario do conjunto
+<input type="hidden" name="country" value="BR"> Não aparecerá para o usuario mas a informação irá via GET(Enviar ID)
+<meta id="viewport" name="viewport" content="width=device-width, user-scalable=no"> adapta a largura ao tamanho do aparelho, e proibe o zoom da tela.
+
+<picture> imagens responsivas
+	<source media="(min-width: 650px)" srcset="img2.jpg" />
+	<source media="(min-width: 450px)" srcset="img3.jpg" />
+	<img src="img1.jpg" />
+</picture>
+____________________________________________________________
+
+<input type="text" name="usuario" placeholder="Usuario" /> aparecerá dentro do campo e apagará quando digitar algo
+<input type="text" name="usuario" autofocus /> começar com o cursor já posicionado
+<input type="text" name="usuario" size="5" /> tamanho do campo será para 5 caracteres - muda conforme a fonte
+<input type="text" name="usuario" maxlength="5" /> quantidade maxima de caracteres do campo
+<input type="email" name="email" autocomplete="off" /> apresentar valor preenchido anteriormente(off ou on)
+____________________________________________________________
+
+Citações:
+
+<q></q> substitui por aspas
+<blockquote cite="link da citação"></blockquote> criar bloco de citação
+____________________________________________________________
+
+Tag Main(somente 1 por página) - conteudo principal da página exemplo no section
+
+<main></main>
+____________________________________________________________
+
+Tag Address - conteudo rodape da página exemplo no footer
+
+<address></address> depende do navegador, ficará em itálico
+____________________________________________________________
+
+Tag Figure - Publicar fotos de blog
+
+<figure>
+<img />
+<figcaption> título da imagem
+</figcaption>
+</figure> 
+____________________________________________________________
+
+FLEXBOX
+
+<head>
+<style type="text/css">
+.container {
+	display: flex;
+	justify-content: center; (alinhamento horizontal) fex-start, flex-end, space-around, space-between
+	align-items: center; (alinhamento vertical)
+	align-content: center;(quando estiver nowrap e mais de 1 linha de conteudo) fex-start, flex-end, space-around, space-between
+	flex-direction: column;(padrão é row)(row-reverse da direita pra esquerda)(column-reverse de baixo pra cima)
+	background-color: #DDDDDD;
+}
+.container div {
+	flex: 1; (grupo de itens)
+	background-color: #FF0000;
+	margin: 10px;
+	padding: 10px;
+	font-size: 18px;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div>1</div>
+		<div>2</div>
+	</div>
+</body>
+
+flex-wrap:wrap; tirar limitador de tamanho do flex(nowrap - padrão)
+flex-flow: row wrap; declara a direção e o tamanho juntos
+
+em uma div:
+align-self: flex-end ou flex-start (diferencia das demais)
+order: 1 (mudar a ordem da div)(padrão = 0)
+____________________________________________________________
+
