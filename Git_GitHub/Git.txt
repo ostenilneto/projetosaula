@@ -31,4 +31,10 @@ git reset --mixed //reverte todas as alterações antes do add(volta no commit a
 git reset --hard // reverte todas as alterações por completo(volta no commit anterior, perde modificações)
 git branch teste // criar um novo branch
 git checkout teste // muda para o branch teste
-git diff // mostra o que foi alterado nos arquivos antes do commit
+git diff // mostra tudo o que foi alterado nos arquivos antes do commit
+git diff --name-only // mostra o nome nos arquivos antes do commit
+git diff style.css // mostra o que foi alterado somente no arquivo style.css antes do commit
+git checkout HEAD -- style.css // cancela as modificações no arquivo especifico - HEAD(somente no branch que está logado)
+
+
+
