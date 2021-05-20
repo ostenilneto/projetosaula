@@ -54,3 +54,7 @@ git pull origin master // sincronizar os arquivos(envio do remoto para local)
 //Clonar um projeto de terceiros
 
 git clone 'url do projeto' // clona projeto 
+
+Usar o botão Fork // copiará o repositorio da pessoa pro meu repositorio
+// Apos Commitar 
+Usar o botão Pull Request // enviará o repositorio para pessoa com as alterações que eu fiz
