@@ -29,3 +29,6 @@ git branch // saber qual o projeto está conectado
 git reset --soft // reverte todas as alterações antes do commit(volta no commit anterior, mas traz as modificações posteriores)
 git reset --mixed //reverte todas as alterações antes do add(volta no commit anterior, mas traz as modificações posteriores)
 git reset --hard // reverte todas as alterações por completo(volta no commit anterior, perde modificações)
+git branch teste // criar um novo branch
+git checkout teste // muda para o branch teste
+git diff // mostra o que foi alterado nos arquivos antes do commit
