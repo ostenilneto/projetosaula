@@ -47,6 +47,10 @@ Criar arquivo ".gitignore" dentro dele colocar qual arquivo e/ou extensão dever
 git remote add origin https://github.com/ostenilneto/projetosaula.git // adicionar repositorio local no remoto
 git remote // mostra o repositorio remoto
 git remote -v // fetch - atualiza do remoto para local / push - atualiza do local para remoto
-git push -u origin master // sincronizar os arquivos
+git push -u origin master // sincronizar os arquivos(envio do local para remoto)
 git push origin :master // remover um branch remoto
+git pull origin master // sincronizar os arquivos(envio do remoto para local)
 
+//Clonar um projeto de terceiros
+
+git clone 'url do projeto' // clona projeto 
