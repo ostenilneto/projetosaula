@@ -36,6 +36,10 @@ git diff --name-only // mostra o nome nos arquivos antes do commit
 git diff style.css // mostra o que foi alterado somente no arquivo style.css antes do commit
 git checkout HEAD -- style.css // cancela as modificações no arquivo especifico - HEAD(somente no branch que está logado)
 
+//Não enviar arquivos pro local e nem pro remoto
+
+Criar arquivo ".gitignore" dentro dele colocar qual arquivo e/ou extensão deverá ser ignorado
+
 //Após cadastrado no GITHUB
 
 git remote add origin https://github.com/ostenilneto/projetosaula.git // adicionar repositorio local no remoto
