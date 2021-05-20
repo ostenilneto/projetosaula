@@ -26,11 +26,13 @@ git commit -m "Primeiro comentario" // Commit + comentario
 git commit -am "Primeiro comentario" // Add + Commit + comentario
 git log // log alterações(commit)
 git branch // saber qual o projeto está conectado
-git reset --soft // reverte todas as alterações antes do commit(volta no commit anterior, mas traz as modificações posteriores)
-git reset --mixed //reverte todas as alterações antes do add(volta no commit anterior, mas traz as modificações posteriores)
-git reset --hard // reverte todas as alterações por completo(volta no commit anterior, perde modificações)
+git reset --soft '+idlog' // reverte todas as alterações antes do commit(volta no commit anterior, mas traz as modificações posteriores)
+git reset --mixed '+idlog' //reverte todas as alterações antes do add(volta no commit anterior, mas traz as modificações posteriores)
+git reset --hard '+idlog' // reverte todas as alterações por completo(volta no commit anterior, perde modificações)
+git revert --no-edit // revert o commit
 git branch teste // criar um novo branch
 git checkout teste // muda para o branch teste
+git branch -D teste // deletar um branch
 git diff // mostra tudo o que foi alterado nos arquivos antes do commit
 git diff --name-only // mostra o nome nos arquivos antes do commit
 git diff style.css // mostra o que foi alterado somente no arquivo style.css antes do commit
@@ -45,4 +47,6 @@ Criar arquivo ".gitignore" dentro dele colocar qual arquivo e/ou extensão dever
 git remote add origin https://github.com/ostenilneto/projetosaula.git // adicionar repositorio local no remoto
 git remote // mostra o repositorio remoto
 git remote -v // fetch - atualiza do remoto para local / push - atualiza do local para remoto
-git push -u origin main // sincronizar os arquivos
+git push -u origin master // sincronizar os arquivos
+git push origin :master // remover um branch remoto
+
